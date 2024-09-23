@@ -5,6 +5,7 @@ class Api::V1::BooksearchController < ApplicationController
     quantity = params[:quantity].to_i
 
     lat_lng = LatLngFacade.lat_lng(q)
+    
     weather_data = WeatherService.search(lat_lng)
 
     destination = "#{weather_data[:location][:name]}, #{weather_data[:location][:region]}"

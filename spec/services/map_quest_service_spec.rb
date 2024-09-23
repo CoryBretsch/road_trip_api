@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Map Quest Service' do 
-  it "hits API for lat lng coordinates", :vcr do 
+  it "hits API for lat lng coordinates" do 
     location = "cincinnati,oh"
     lat_lng_hash = MapQuestService.search(location)
 

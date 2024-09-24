@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Road Trip Forecast API" do 
+RSpec.describe "Road Trip Forecast API" do 
   describe "Happy Path" do
     it "send weather forecast for given location" do 
       location = "Cincinnati, OH"

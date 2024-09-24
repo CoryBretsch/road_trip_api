@@ -9,14 +9,11 @@ class Api::V1::UsersController < ApplicationController
       render json: UserSerializer.new(user), status:201
     rescue ActiveRecord::RecordInvalid => exception
       render json: ErrorSerializer.new(ErrorMessage.new(exception.message, 400)).serialize_json, status: 400
-      # Validation failed: Email can't be blank
     end
-
-
-
   end
 
-    private 
+    private
+    
     def user_params
       params.permit(:email, :password, :password_confirmation)
     end

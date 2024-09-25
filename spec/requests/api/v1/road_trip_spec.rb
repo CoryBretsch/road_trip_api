@@ -15,7 +15,13 @@ RSpec.describe "Road Trip Endpoint" do
       expect(response.status).to eq 200
 
       body = JSON.parse(response.body, symbolize_names: true)[:data]
-      require 'pry'; binding.pry
+      
+      expect(body.keys.count).to eq 3
+      expect(body[:id]).to eq("null")
+      expect(body[:type]).to eq("road_trip")
+      expect(body[:attributes].keys.count).to eq 4
+      expect(body[:attributes][:weather_at_eta].keys.count).to eq 3
+
     end
 
     it "Sad Path" do 
